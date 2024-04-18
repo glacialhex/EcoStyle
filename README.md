@@ -3,3 +3,5 @@ boso ya gama3a, hena e7na hnkamel 3la shoghl ba3d 3n tare2 en ehna hn3ml file ht
 For example: Mariam 5adet el file awl wahda w eshtaghalet 3aleh, b3d ma t5alas ht3ml upload llfile b esm "EcoStyle Frontend Ver.1.1 (Mariam)" w elly ba3daha 7abeb yeshtaghal lma y5alas y3ml file "EcoStyle Frontend Ver.1.2 (name)" w hakaza"
 
 Da hysa3edna f el organization w en lw 7d 3amal ghalta mtbawazsh el project. W inshallah n3ml shoghl gamed.
+
+P.S: It is more useful to include comments 3shan hysa3d el ba2y yfham el shoghl. So whenever you can ektebo comments.
