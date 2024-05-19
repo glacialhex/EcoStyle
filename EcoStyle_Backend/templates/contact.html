@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+   <div class="banner_bg_main">
+      <!-- header top section start -->
+      <div class="container">
+         <div class="header_section_top">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="custom_menu">
+                     <ul>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'main_page' %}">Home</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Banner Image -->
+      <img src="" class="img-fluid" alt="">
+      <!-- Contact Form -->
+      <div class="wrapper">
+          <form action="{% url 'message' %}" method="POST">
+              <h1>Contact Us</h1>
+              <div class="input-box">
+                  <label>
+                  <input type="text" name="name" placeholder="Name" required>
+                  </label>
+                  <i class='bx bxs-user'></i>
+              </div>
+              <div class="input-box">
+                  <label>
+                  <input type="email" name="email" placeholder="Email" required>
+                  </label>
+                  <i class='bx bxs-envelope'></i>
+              </div>
+              <div class="input-box">
+                  <label>
+                  <textarea name="message" placeholder="Message" required></textarea>
+                  </label>
+                  <i class='bx bxs-message-square-detail'></i>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+          </form>
+      </div>
+   </div>
+</body>
+</html>

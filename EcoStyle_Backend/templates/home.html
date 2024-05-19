@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Home Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'css/demo.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <!-- Header Section -->
+    <div class="header_section_top">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="custom_menu">
+                    <ul>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'main_page' %}">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay">
+        <div class="cart-modal">
+            <i id="close-btn" class="fas fa-times"></i>
+            <h1 class="cart-is-empty">Cart is empty</h1>
+            <div class="product-rows"></div>
+            <div class="total">
+                <h1 class="cart-total">TOTAL</h1>
+                <span class="total-price">$0</span>
+                <a href="{% url 'payment' %}">
+                    <button class="purchase-btn">PURCHASE</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-btn">
+        <i id="cart" class="fas fa-shopping-cart"></i>
+        <span class ="cart-quantity">0</span>
+    </div>
+
+    <!-- Products Section -->
+    <section class="shop_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>Home Decoration</h2>
+            </div>
+            <div class="items-container">
+                <div class="card-1 card">
+                    <img class="product-image" src="{% static 'images/home1.jpg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">8-pack Thin Candles</span>
+                    <span class="product-price">599 EGP</span>
+                </div>
+                <div class="card-2 card">
+                    <img class="product-image" src="{% static 'images/home2.jpg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">Cotton Duvet Cover Set</span>
+                    <span class="product-price">4500 EGP</span>
+                </div>
+                <div class="card-3 card">
+                    <img class="product-image" src="{% static 'images/home3.jpg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">Large Scented Candle</span>
+                    <span class="product-price">700 EGP</span>
+                </div>
+            </div>
+            <div class="items-container">
+                <div class="card-1 card">
+                    <img class="product-image" src="{% static 'images/home4.jpeg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">Wooden Stool</span>
+                    <span class="product-price">1395 EGP</span>
+                </div>
+                <div class="card-2 card">
+                    <img class="product-image" src="{% static 'images/home5.jpeg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">Wooden Chair</span>
+                    <span class="product-price">2500 EGP</span>
+                </div>
+                <div class="card-3 card">
+                    <img class="product-image" src="{% static 'images/home6.jpeg'%}" alt="">
+                    <button class="add-to-cart">Add to cart</button>
+                    <span class="product-name">Acacia side table</span>
+                    <span class="product-price">3650 EGP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Information Section -->
+<section class="info_section  layout_padding2-top">
+    <div class="social_container">
+        <div class="social_box">
+            <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="info_container ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <h6>ABOUT US</h6>
+                    <p>As engineering students at Ain Shams University in Cairo, Egypt, we're dedicated to applying science and technology to real-world challenges. We're honing our skills in web development, user experience design, and online business management. This hands-on experience allows us to apply theoretical knowledge to a practical setting, preparing us for the dynamic world of digital commerce.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h6>CONTACT US</h6>
+                    <div class="info_link-box">
+                        <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span>street,abbasia,CAIRO.EGYPT</span></a>
+                        <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>+20 1000 156 007</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer_section">
+    <div class="container">
+    </div>
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('home-icon').addEventListener('click', function() {
+            fetch('/home/')
+                .then(response => response.text())
+                .then(data => {
+                    // Update the product container with the response HTML
+                    document.querySelector('.items-container').innerHTML = data;
+                })
+                .catch(error => console.error('Fetch error:', error));
+        });
+    });
+</script>
+</body>
+</html>

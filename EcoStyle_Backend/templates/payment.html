@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <link rel="stylesheet" href="{% static 'css/stylepay.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form action="{% url 'confirm_payment' %}" method="post">
+            {% csrf_token %}
+            <div class="inputs-container">
+                <div class="billing-area">
+                    <h3 class="title">Billing Address</h3>
+                    <label for="fullName">Full Name</label>
+                    <input type="text" name="fullName" id="fullName" placeholder="Your Name" required>
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" name="emailAddress" id="emailAddress" placeholder="Email Address" required>
+                    <label for="homeAddress">Home Address</label>
+                    <input type="text" name="homeAddress" id="homeAddress" placeholder="Home Address" required>
+                    <label for="governorateName">Governorate Name</label>
+                    <input type="text" name="governorateName" id="governorateName" placeholder="Governorate Name" required>
+                    <label for="cityName">City Name</label>
+                    <input type="text" name="cityName" id="cityName" placeholder="City Name" required>
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" name="zipCode" id="zipCode" placeholder="Zip Code" required>
+                </div>
+                <div class="payment-area">
+                    <h3 class="title">Payment Method</h3>
+                    <img class="visa-img" src="{% static 'images/visa.svg' %}" alt="An image of a visa card">
+                    <label for="nameOnCard">Name on Card</label>
+                    <input type="text" name="nameOnCard" id="nameOnCard" placeholder="Name on card" required>
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" name="cardNumber" id="cardNumber" placeholder="Card Number" required pattern="\d{16}" title="Please enter a valid 16-digit card number">
+                    <div class="error-message" id="cardNumber-error"></div>
+                    <label for="expMonth">Expiration Month</label>
+                    <select name="expMonth" id="expMonth" required>
+                        <option value="" disabled selected>Select Month</option>
+                        {% for month in months %}
+                            <option value="{{ month }}">{{ month }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="expYear">Expiration Year</label>
+                    <select name="expYear" id="expYear" required>
+                        <option value="" disabled selected>Select Year</option>
+                            {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                    </select>
+                    <label for="CVV">CVV</label>
+                    <input type="text" name="CVV" id="CVV" placeholder="CVV" required pattern="\d{3}" title="Please enter a valid 3-digit CVV">
+                    <div class="error-message" id="CVV-error"></div>
+                </div>
+            </div>
+            <input type="submit" value="Confirm Payment">
+        </form>
+    </div>
+</body>
+</html>
